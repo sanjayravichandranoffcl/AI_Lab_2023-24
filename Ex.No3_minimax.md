@@ -1,6 +1,6 @@
 # Ex.No: 3  Implementation of Minimax Search
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE:      13/09/25                                                                      
+### REGISTER NUMBER : 212223060245
 ### AIM: 
 Write a mini-max search algorithm to find the optimal value of MAX Player from the given graph.
 ### Algorithm:
@@ -15,19 +15,12 @@ Write a mini-max search algorithm to find the optimal value of MAX Player from t
 9. Stop the program. 
 
 ### Program:
-
-
-
-
-
-
-
-
-
-
+<img width="947" height="605" alt="Screenshot 2025-09-13 085146" src="https://github.com/user-attachments/assets/b83d95e6-3f2e-44d1-8e21-99738d52c600" />
 
 ### Output:
 
+
+<img width="840" height="211" alt="Screenshot 2025-09-13 085844" src="https://github.com/user-attachments/assets/7fe45b1b-8792-49fb-83c7-4fda952662da" />
 
 
 ### Result:
