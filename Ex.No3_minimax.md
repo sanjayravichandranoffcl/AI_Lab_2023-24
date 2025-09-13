@@ -15,12 +15,65 @@ Write a mini-max search algorithm to find the optimal value of MAX Player from t
 9. Stop the program. 
 
 ### Program:
-<img width="947" height="605" alt="Screenshot 2025-09-13 085146" src="https://github.com/user-attachments/assets/b83d95e6-3f2e-44d1-8e21-99738d52c600" />
+~~~
+import math
+
+def game_won(board, player):
+    wins = [(0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6)]
+    for a,b,c in wins:
+        if board[a] == board[b] == board[c] == player:
+            return True
+    return False
+
+def game_tied(board):
+    return " " not in board
+
+def get_available_moves(board):
+    return [i for i, spot in enumerate(board) if spot == " "]
+
+def make_move(board, move, player):
+    board[move] = player
+
+def undo_move(board, move):
+    board[move] = " "
+
+def minimax(board, depth, isMaximizingPlayer):
+    if game_won(board, "O"):
+        return 10
+    if game_won(board, "X"):
+        return -10
+    if game_tied(board):
+        return 0
+    if isMaximizingPlayer:
+        bestScore = -math.inf
+        for move in get_available_moves(board):
+            make_move(board, move, "O")
+            score = minimax(board, depth + 1, False)
+            undo_move(board, move)
+            bestScore = max(score, bestScore)
+        return bestScore
+    else:
+        bestScore = math.inf
+        for move in get_available_moves(board):
+            make_move(board, move, "X")
+            score = minimax(board, depth + 1, True)
+            undo_move(board, move)
+            bestScore = min(score, bestScore)
+        return bestScore
+
+if __name__ == "__main__":
+    # Board where O has already won across the top row
+    board = ["O","O","O",
+             "X","X"," ",
+             " "," "," "]
+    optimal_value = minimax(board, 0, True)
+    print(f"The optimal value for MAX player is: {optimal_value}")
+~~~
+
 
 ### Output:
 
-
-<img width="840" height="211" alt="Screenshot 2025-09-13 085844" src="https://github.com/user-attachments/assets/7fe45b1b-8792-49fb-83c7-4fda952662da" />
+<img width="483" height="162" alt="image" src="https://github.com/user-attachments/assets/b6e411c1-ae15-46fb-bf83-d77f58d13a71" />
 
 
 ### Result:
